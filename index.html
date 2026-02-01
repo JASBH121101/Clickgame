@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyber Clicker Challenge</title>
+  <link rel="stylesheet" href="EstiloClicker.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="container">
+    <h1>CLICK CHALLENGE</h1>
+    
+    <div class="stats-grid">
+      <div class="stat-box">
+        <p>Tiempo</p>
+        <span id="time">10</span>s
+      </div>
+      <div class="stat-box">
+        <p>Clicks</p>
+        <span id="score">0</span>
+      </div>
+    </div>
+
+    <button id="clickBtn" class="main-btn" disabled>CLICK AQUÍ</button>
+    
+    <div class="controls">
+        <button id="startBtn">INICIAR JUEGO</button>
+        <p id="highScore">Récord: 0</p>
+    </div>
+  </div>
+
+  <script src="InteractionClicker.js"></script>
+</body>
+</html>
+
