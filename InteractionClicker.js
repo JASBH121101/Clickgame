@@ -2,13 +2,15 @@ let score = 0;
 let time = 10;
 let timer;
 let gameActive = false;
-let highRick = 0;
+let highRick = 0; // Manteniendo el nombre que tenías
 
 const scoreEl = document.getElementById('score');
 const timeEl = document.getElementById('time');
 const clickBtn = document.getElementById('clickBtn');
 const startBtn = document.getElementById('startBtn');
 const highScoreEl = document.getElementById('highScore');
+const modal = document.getElementById('resultModal');
+const finalScoreText = document.getElementById('finalScoreText');
 
 clickBtn.addEventListener('click', () => {
   if (gameActive) {
@@ -18,12 +20,10 @@ clickBtn.addEventListener('click', () => {
 });
 
 startBtn.addEventListener('click', () => {
-  // Reiniciar valores
   score = 0;
   time = 10;
   gameActive = true;
   
-  // Bloquear/Desbloquear interfaz
   startBtn.disabled = true;
   clickBtn.disabled = false;
   
@@ -46,13 +46,18 @@ function endGame() {
   startBtn.disabled = false;
   clickBtn.disabled = true;
 
-  // Cálculo de Clicks por Segundo (CPS)
-  const cps = score / 10;
+  const cps = (score / 10).toFixed(1);
   
   if (score > highRick) {
       highRick = score;
       highScoreEl.textContent = `Récord: ${highRick}`;
   }
 
-  alert(`¡Juego Terminado!\nClicks totales: ${score}\nVelocidad: ${cps} CPS`);
+  // En lugar de alert, mostramos el modal
+  finalScoreText.innerHTML = `Clicks totales: <b>${score}</b><br>Velocidad: <b>${cps} CPS</b>`;
+  modal.style.display = "block";
+}
+
+function closeModal() {
+  modal.style.display = "none";
 }

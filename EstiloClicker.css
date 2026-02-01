@@ -7,6 +7,7 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
+  overflow: hidden;
 }
 
 .container {
@@ -47,12 +48,12 @@ h1 { font-size: 1.5rem; margin-bottom: 20px; text-shadow: 0 0 10px #00fbff; }
   font-size: 1.2rem;
   cursor: pointer;
   box-shadow: 0 0 15px #00fbff;
-  transition: transform 0.1s, box-shadow 0.1s;
+  transition: transform 0.05s, box-shadow 0.1s;
   margin: 20px 0;
 }
 
 .main-btn:active {
-  transform: scale(0.95);
+  transform: scale(0.92);
   box-shadow: 0 0 5px #00fbff;
 }
 
@@ -71,6 +72,51 @@ h1 { font-size: 1.5rem; margin-bottom: 20px; text-shadow: 0 0 10px #00fbff; }
   border-radius: 5px;
   cursor: pointer;
   font-family: inherit;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
-#startBtn:disabled { background: #555; }
+#startBtn:hover:not(:disabled) {
+  background: #22c55e;
+  box-shadow: 0 0 10px #22c55e;
+}
+
+#startBtn:disabled { background: #555; cursor: not-allowed; }
+
+/* ESTILOS DEL MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  background-color: #111;
+  margin: 20% auto;
+  padding: 30px;
+  border: 2px solid #00fbff;
+  width: 80%;
+  max-width: 300px;
+  text-align: center;
+  border-radius: 15px;
+  color: white;
+}
+
+.modal-content h2 { color: #00fbff; margin-top: 0; }
+
+.modal-content button {
+  background: #00fbff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: bold;
+  margin-top: 20px;
+}
